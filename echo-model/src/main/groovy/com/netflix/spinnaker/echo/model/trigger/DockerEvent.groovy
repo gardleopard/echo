@@ -17,6 +17,7 @@
 package com.netflix.spinnaker.echo.model.trigger
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.netflix.spinnaker.echo.model.Artifact
 import groovy.transform.Canonical
 
 @Canonical
@@ -33,5 +34,7 @@ class DockerEvent extends TriggerEvent {
     String repository
     String tag
     String digest
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    Artifact artifact
   }
 }
